@@ -304,7 +304,6 @@ CREATE TABLE #POP_LIST (
 );
 
 INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
-(N'Alert Raised on', 'C164'),
 (N'Alteração mensal das políticas de backup dos compartilhamentos de arquivos', 'TA085'),
 (N'Alterar senha do usuário de serviço', 'TA060'),
 (N'Análise de Vulnerabilidades', 'TA020'),
@@ -318,46 +317,36 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Revisão mensal das tags', 'TA083'),
 (N'Suspender o Scheduler', 'TA028'),
 (N'Verificação Semanal de Alteração de Políticas de Backup', 'TA086'),
-(N'Verificar máquinas desligadas no vCenter', 'C164'),
 
 -- Estado da Mídia
-(N'Estado da Mídia', 'C164'),
 (N'Estado da Mídia', 'C017'),
 
 -- SNMP Trap
-(N'SNMP Trap', 'C164'),
 (N'SNMP Trap', 'C017'),
 
 -- Utilização do Disco
-(N'Utilização do Disco', 'C164'),
 (N'Utilização do Disco', 'C017'),
 
 -- Utilização de CPU
-(N'Utilização de CPU', 'C164'),
 (N'Utilização de CPU', 'C017'),
 (N'Utilização de CPU', 'TA014'),
 
 -- Serviço NetBackup Anomaly Detection Management Service
 (N'Serviço NetBackup Anomaly Detection Management Service', 'C017'),
-(N'Serviço NetBackup Anomaly Detection Management Service', 'C164'),
 (N'Serviço NetBackup Anomaly Detection Management Service', 'TA014'),
 
 -- Indisponibilidade de comunicação com Agente Zabbix
 (N'Indisponibilidade de comunicação com Agente Zabbix', 'C017'),
-(N'Indisponibilidade de comunicação com Agente Zabbix', 'C164'),
 
 -- Estado da Library
 (N'Estado da Library', 'C017'),
-(N'Estado da Library', 'C164'),
 
 -- Estado do Drive
-(N'Estado do Drive', 'C164'),
 (N'Estado do Drive', 'C017'),
 (N'Estado do Drive', 'TA023'),
 
 -- Restaurar backup
 (N'Restaurar backup', 'C119'),
-(N'Restaurar backup', 'C164'),
 (N'Restaurar backup', 'TA004'),
 
 -- Teste de Restore VM
@@ -365,113 +354,79 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Teste de Restore VM', 'TA052'),
 
 -- Backup One-time-full
-(N'Backup One-time-full', 'C164'),
 (N'Backup One-time-full', 'C239'),
 (N'Backup One-time-full', 'TA024'),
 (N'Backup One-time-full', 'C034'),
 
 -- Descomissionamento de File System das rotinas de backup
-(N'Descomissionamento de File System das rotinas de backup', 'C164'),
 (N'Descomissionamento de File System das rotinas de backup', 'C239'),
 (N'Descomissionamento de File System das rotinas de backup', 'TA024'),
 (N'Descomissionamento de File System das rotinas de backup', 'C034'),
 
 -- Comissionamento nas rotinas de backup
-(N'Comissionamento nas rotinas de backup', 'C164'),
 (N'Comissionamento nas rotinas de backup', 'C238'),
 (N'Comissionamento nas rotinas de backup', 'TA011'),
 (N'Comissionamento nas rotinas de backup', 'TA033'),
 
 -- Excluir hosts
-(N'Excluir hosts', 'C164'),
 (N'Excluir hosts', 'TA019'),
 
 -- Job Completed (agora com blindagem numérica genérica)
 (N'Job Completed with Exit Status 2', 'TA061'),
 
-(N'Job Completed with Exit Status 6', 'C164'),
 (N'Job Completed with Exit Status 6', 'TA061'),
 
-(N'Job Completed with Exit Status 11', 'C164'),
 (N'Job Completed with Exit Status 11', 'TA007'),
 (N'Job Completed with Exit Status 11', 'TA001'),
 
-(N'Job Completed with Exit Status 13', 'C164'),
 (N'Job Completed with Exit Status 13', 'TA007'),
 (N'Job Completed with Exit Status 13', 'TA061'),
 
-(N'Job Completed with Exit Status 14', 'C164'),
 (N'Job Completed with Exit Status 14', 'TA007'),
 
-(N'Job Completed with Exit Status 25', 'C164'),
 (N'Job Completed with Exit Status 25', 'TA007'),
 (N'Job Completed with Exit Status 25', 'TA061'),
 
-(N'Job Completed with Exit Status 42', 'C164'),
 (N'Job Completed with Exit Status 42', 'TA007'),
 
-(N'Job Completed with Exit Status 47', 'C164'),
 (N'Job Completed with Exit Status 47', 'TA061'),
 
-(N'Job Completed with Exit Status 50', 'C164'),
 (N'Job Completed with Exit Status 50', 'TA061'),
 (N'Job Completed with Exit Status 50', 'TA007'),
 
-(N'Job Completed with Exit Status 58', 'C164'),
 (N'Job Completed with Exit Status 58', 'TA007'),
 
-(N'Job Completed with Exit Status 83', 'C164'),
 (N'Job Completed with Exit Status 83', 'TA061'),
 
-(N'Job Completed with Exit Status 84', 'C164'),
 (N'Job Completed with Exit Status 84', 'TA007'),
 (N'Job Completed with Exit Status 84', 'TA031'),
 
-(N'Job Completed with Exit Status 87', 'C164'),
 (N'Job Completed with Exit Status 87', 'TA007'),
 
-(N'Job Completed with Exit Status 156', 'C164'),
 (N'Job Completed with Exit Status 156', 'TA007'),
 
-(N'Job Completed with Exit Status 160', 'C164'),
 (N'Job Completed with Exit Status 160', 'TA061'),
 
-(N'Job Completed with Exit Status 191', 'C164'),
-
-(N'Job Completed with Exit Status 196', 'C164'),
 (N'Job Completed with Exit Status 196', 'TA061'),
 (N'Job Completed with Exit Status 196', 'TA007'),
 
-(N'Job Completed with Exit Status 200', 'C164'),
 (N'Job Completed with Exit Status 200', 'TA062'),
 (N'Job Completed with Exit Status 200', 'TA007'),
 
-(N'Job Completed with Exit Status 232', 'C164'),
 (N'Job Completed with Exit Status 232', 'TA061'),
 
-(N'Job Completed with Exit Status 4207', 'C164'),
 (N'Job Completed with Exit Status 4207', 'TA007'),
 
-(N'Job Completed with Exit Status 4234', 'C164'),
 (N'Job Completed with Exit Status 4234', 'TA007'),
 
-(N'Job Completed with Exit Status 4239', 'C164'),
-
-(N'Job Completed with Exit Status 4275', 'C164'),
 (N'Job Completed with Exit Status 4275', 'TA007'),
 
-(N'Job Completed with Exit Status 4278', 'C164'),
-
-(N'Job Completed with Exit Status 4287', 'C164'),
 (N'Job Completed with Exit Status 4287', 'TA007'),
 
-(N'Job Completed with Exit Status 4292', 'C164'),
 (N'Job Completed with Exit Status 4292', 'TA001'),
 
-(N'Job Completed with Exit Status 4293', 'C164'),
 (N'Job Completed with Exit Status 4293', 'TA007'),
-
-(N'Job Completed with Exit Status 5455', 'C164'),
+;
 (N'Job Completed with Exit Status 5455', 'TA061');
 
 DECLARE @Sinonimos TABLE (Canon nvarchar(4000) NOT NULL, Variante nvarchar(4000) NOT NULL);
