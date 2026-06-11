@@ -376,7 +376,6 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Descomissionamento de File System das rotinas de backup', 'C034'),
 
 -- Comissionamento nas rotinas de backup
-(N'Comissionamento nas rotinas de backup', 'C164'),
 (N'Comissionamento nas rotinas de backup', 'C238'),
 (N'Comissionamento nas rotinas de backup', 'TA011'),
 (N'Comissionamento nas rotinas de backup', 'TA033'),
