@@ -8,7 +8,7 @@ DECLARE @NAO nvarchar(3) = NCHAR(78) + NCHAR(195) + NCHAR(79); -- 'NÃO'
 -- [PARAMETROS]
 --------------------------------------------------------------------------------
 DECLARE @From  datetime2(0) = '2026-01-01 03:00:00';
-DECLARE @To    datetime2(0) = '2026-06-01 02:59:59';
+DECLARE @To    datetime2(0) = '2027-01-01 02:59:59';
 DECLARE @FromEpoch int = DATEDIFF(SECOND, '1970-01-01', @From);
 DECLARE @ToEpoch   int = DATEDIFF(SECOND, '1970-01-01', @To);
 
@@ -78,7 +78,7 @@ DECLARE @has_orig  bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FRO
 DECLARE @has_file  bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='file_name')      THEN 1 ELSE 0 END;
 DECLARE @has_fname bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='filename')       THEN 1 ELSE 0 END;
 DECLARE @has_name  bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='name')           THEN 1 ELSE 0 END;
-DECLARE @has_symA  bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='sym')            THEN 1 ELSE 0 END;
+DECLARE @has_symA  bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='sym')             THEN 1 ELSE 0 END;
 DECLARE @has_del   bit = CASE WHEN @att_tbl IS NOT NULL AND EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID(@att_tbl) AND name='delete_flag')    THEN 1 ELSE 0 END;
 
 DECLARE @nameExpr nvarchar(max) = N'';
@@ -375,10 +375,17 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Descomissionamento de File System das rotinas de backup', 'TA024'),
 (N'Descomissionamento de File System das rotinas de backup', 'C034'),
 
+<<<<<<< HEAD:A2B/A2B - POPConforme.sql
 -- Comissionamento nas rotinas de backup
+=======
+-- Comissionamento nas rotinas de backup - nas
+(N'Comissionamento nas rotinas de backup - nas', 'C238'),
+(N'Comissionamento nas rotinas de backup - nas', 'TA033'),
+
+-- Comissionamento nas rotinas de backup (sem nas)
+>>>>>>> 2441ec7aeca3865be84328270a2cacab0dabb649:A2B - POPConforme.sql
 (N'Comissionamento nas rotinas de backup', 'C238'),
 (N'Comissionamento nas rotinas de backup', 'TA011'),
-(N'Comissionamento nas rotinas de backup', 'TA033'),
 
 -- Excluir hosts
 (N'Excluir hosts', 'C164'),
@@ -520,6 +527,11 @@ WHERE m.pos > 0
   AND NOT (
       EXISTS (SELECT 1 FROM #PATTERNS dp WHERE dp.TextNoSpace = N'Des' + p.TextNoSpace)
       AND CHARINDEX(N'Des' + p.TextNoSpace, ISNULL(b.sumNoSpace, N'')) > 0
+  )
+  -- NOVA REGRA: Evitar que o 'Comissionamento' (sem -nas) entre quando o chamado for '... - nas'
+  AND NOT (
+      p.TextNoSpace = N'Comissionamentonasrotinasdebackup'
+      AND CHARINDEX(N'Comissionamentonasrotinasdebackup-nas', ISNULL(b.sumNoSpace, N'')) > 0
   );
 
 CREATE INDEX IX_POP_EXPECT_Chamado ON #POP_EXPECT(Chamado) INCLUDE (POPcode);
