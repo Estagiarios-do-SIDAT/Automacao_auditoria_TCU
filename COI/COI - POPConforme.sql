@@ -297,6 +297,7 @@ CREATE TABLE #POP_LIST (
 
 INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'A2B - Teste de Restore VM', 'C202'),
+(N'Atualizar lista suspensa', 'C159'),
 (N'Alterar Nomenclatura', 'C118'),
 (N'BI-ANALYTICS', 'C108'),
 (N'Backup - Análise de Vulnerabilidades', 'D090'),
@@ -326,6 +327,7 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Descomissionamento', 'C239'),
 (N'Descomissionar Máquina Virtual (VM)', 'C239'),
 (N'Descredenciamento', 'C159'),
+(N'Desativação de crachá do colaborador descredenciado', 'C159'),
 (N'Embratel', 'C004'),
 (N'Embratel', 'C017'),
 (N'Fitas', 'C150'),

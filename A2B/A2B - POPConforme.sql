@@ -375,15 +375,13 @@ INSERT INTO #POP_LIST(ResumoFull, POPEsperado) VALUES
 (N'Descomissionamento de File System das rotinas de backup', 'TA024'),
 (N'Descomissionamento de File System das rotinas de backup', 'C034'),
 
-<<<<<<< HEAD:A2B/A2B - POPConforme.sql
 -- Comissionamento nas rotinas de backup
-=======
+
 -- Comissionamento nas rotinas de backup - nas
 (N'Comissionamento nas rotinas de backup - nas', 'C238'),
 (N'Comissionamento nas rotinas de backup - nas', 'TA033'),
 
 -- Comissionamento nas rotinas de backup (sem nas)
->>>>>>> 2441ec7aeca3865be84328270a2cacab0dabb649:A2B - POPConforme.sql
 (N'Comissionamento nas rotinas de backup', 'C238'),
 (N'Comissionamento nas rotinas de backup', 'TA011'),
 
