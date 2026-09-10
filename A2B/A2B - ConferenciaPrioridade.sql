@@ -1,17 +1,17 @@
 USE mdb;
 SET NOCOUNT ON;
 
--- Janela (UTC equivalente ao mÍs cheio em -03:00)
+-- Janela (UTC equivalente ao m√™s cheio em -03:00)
 DECLARE @From      datetime2(0) = '2025-11-01 03:00:00';
 DECLARE @To        datetime2(0) = '2025-12-01 02:59:59';
 DECLARE @FromEpoch int = DATEDIFF(SECOND, '1970-01-01', @From);
 DECLARE @ToEpoch   int = DATEDIFF(SECOND, '1970-01-01', @To);
 
--- Grupo A2B (ID BIN¡RIO CORRETO DO A2B)
+-- Grupo A2B (ID BIN√ÅRIO CORRETO DO A2B)
 DECLARE @A2B varbinary(16) = 0xCE4FDD26D5053545BF4A11332BB07485;
 
 --------------------------------------------------------------------------------
--- [0] Lista de padrıes (A2B) + regras din‚micas (CPU/MEM/DIS)
+-- [0] Lista de padr√µes (A2B) + regras din√¢micas (CPU/MEM/DIS)
 --------------------------------------------------------------------------------
 DECLARE @Lista TABLE (
     PadraoResumo            nvarchar(300) NOT NULL,
@@ -24,54 +24,54 @@ INSERT INTO @Lista(PadraoResumo, PrioridadeEsperadaSigla, PrioridadeEsperadaEnum
 VALUES
 (N'Passagem de turno', N'P3', 3, NULL),
 (N'Backup Job Summary report da Equipe', N'P3', 3, NULL),
-(N'AtualizaÁ„o Mensal do As-Built do ServiÁo de Backup', N'P3', 3, NULL),
-(N'RelatÛrio de provisionamento de fitas', N'P3', 3, NULL),
+(N'Atualiza√ß√£o Mensal do As-Built do Servi√ßo de Backup', N'P3', 3, NULL),
+(N'Relat√≥rio de provisionamento de fitas', N'P3', 3, NULL),
 (N'Suspender o Scheduler', N'P1', 1, NULL),
-(N'Alterar senha do usu·rio de serviÁo', N'P3', 3, NULL),
-(N'AlteraÁ„o de agendamento de backup', N'P3', 3, NULL),
-(N'An·lise de Vulnerabilidades', N'P5', 5, NULL),
+(N'Alterar senha do usu√°rio de servi√ßo', N'P3', 3, NULL),
+(N'Altera√ß√£o de agendamento de backup', N'P3', 3, NULL),
+(N'An√°lise de Vulnerabilidades', N'P5', 5, NULL),
 (N'Backup One-time-ful e Descomissionamento das rotinas de backup', N'P3', 3, NULL),
 (N'Comissionamento nas rotinas de backup', N'P3', 3, NULL),
-(N'RelatÛrio de Indicadores Institucionais', N'P2', 2, NULL),
+(N'Relat√≥rio de Indicadores Institucionais', N'P2', 2, NULL),
 (N'Teste de Restore VM', N'P4', 4, NULL),
-(N'AlteraÁ„o mensal da senha do usu·rio de serviÁos', N'P3', 3, NULL),
+(N'Altera√ß√£o mensal da senha do usu√°rio de servi√ßos', N'P3', 3, NULL),
 (N'Comissionamento', N'P3', 3, NULL),
 (N'Descomissionamento', N'P3', 3, NULL),
-(N'RecuperaÁ„o de arquivos', N'P2', 2, NULL),
-(N'VerificaÁ„o Semanal de AlteraÁ„o de PolÌticas de Backup', N'P3', 3, NULL),
+(N'Recupera√ß√£o de arquivos', N'P2', 2, NULL),
+(N'Verifica√ß√£o Semanal de Altera√ß√£o de Pol√≠ticas de Backup', N'P3', 3, NULL),
 (N'Backup One-time-full e Descomissionamento de File System das rotinas de backup', N'P3', 3, NULL),
-(N'Revis„o mensal das tags', N'P3', 3, NULL),
-(N'AlteraÁ„o no agendamento de backup do banco', N'P3', 3, NULL),
+(N'Revis√£o mensal das tags', N'P3', 3, NULL),
+(N'Altera√ß√£o no agendamento de backup do banco', N'P3', 3, NULL),
 (N'Job Completed with Exit Status', N'P2', 2, NULL),
 (N'Chamado massivo', N'P3', 3, NULL),
 (N'Estado da Library', N'P3', 3, NULL),
-(N'ServiÁo NetBackup Anomaly Detection Management Service IndisponÌvel', N'P1', 1, NULL),
+(N'Servi√ßo NetBackup Anomaly Detection Management Service Indispon√≠vel', N'P1', 1, NULL),
 (N'Restore de arquivos', N'P3', 3, NULL),
-(N'Verificar m·quinas desligadas no vCenter', N'P3', 3, NULL),
+(N'Verificar m√°quinas desligadas no vCenter', N'P5', 5, NULL),
 (N'Alert Raised', N'P2', 2, NULL),
 (N'Required for restore', N'P1', 1, NULL),
 (N'User granted reduced permissions due to role misconfiguration', N'P1', 1, NULL),
 (N'Estado do Drive', N'P3', 3, NULL),
-(N'Estado da MÌdia', N'P3', 3, NULL),
-(N'RestauraÁ„o de backup', N'P3', 3, NULL),
+(N'Estado da M√≠dia', N'P3', 3, NULL),
+(N'Restaura√ß√£o de backup', N'P3', 3, NULL),
 (N'NetBackup backup exit', N'P2', 2, NULL),
 (N'Atualizar os clients do NetBackup', N'P3', 3, NULL),
-(N'AlteraÁ„o mensal das polÌticas de backup dos compartilhamentos de arquivos', N'P3', 3, NULL),
+(N'Altera√ß√£o mensal das pol√≠ticas de backup dos compartilhamentos de arquivos', N'P3', 3, NULL),
 
--- Regras din‚micas (CPU/MEM/DIS)
-(N'UtilizaÁ„o de CPU',       NULL, NULL, N'CPU'),
-(N'UtilizaÁ„o de MemÛria',   NULL, NULL, N'MEM'),
-(N'UtilizaÁ„o do Disco',     NULL, NULL, N'DIS');
+-- Regras din√¢micas (CPU/MEM/DIS)
+(N'Utiliza√ß√£o de CPU',       NULL, NULL, N'CPU'),
+(N'Utiliza√ß√£o de Mem√≥ria',   NULL, NULL, N'MEM'),
+(N'Utiliza√ß√£o do Disco',     NULL, NULL, N'DIS');
 
 --------------------------------------------------------------------------------
--- [0.1] SinÙnimos (se quiser, preencha; mantÈm Canon/Variante)
+-- [0.1] Sin√¥nimos (se quiser, preencha; mant√©m Canon/Variante)
 --------------------------------------------------------------------------------
 DECLARE @Sinonimos TABLE (
   Canon    nvarchar(300) NOT NULL,
   Variante nvarchar(300) NOT NULL
 );
 
--- (vazio por padr„o; pode inserir depois)
+-- (vazio por padr√£o; pode inserir depois)
 
 --------------------------------------------------------------------------------
 -- [1] Base + Patterns (mesmo modelo)
@@ -114,32 +114,32 @@ SELECT
     LTRIM(RTRIM(CONVERT(nvarchar(max), b.summary))) AS Resumo,
 
     CASE L.PrioridadeEsperadaEnumCalc
-        WHEN 1 THEN N'1 - M·xima'
+        WHEN 1 THEN N'1 - M√°xima'
         WHEN 2 THEN N'2 - Alta'
-        WHEN 3 THEN N'3 - MÈdia'
+        WHEN 3 THEN N'3 - M√©dia'
         WHEN 4 THEN N'4 - Baixa'
-        WHEN 5 THEN N'5 - MÌnima'
+        WHEN 5 THEN N'5 - M√≠nima'
         ELSE N'N/A'
     END AS PrioridadeEsperadaNaLista,
 
     CASE b.priority
-        WHEN 1 THEN N'1 - M·xima'
+        WHEN 1 THEN N'1 - M√°xima'
         WHEN 2 THEN N'2 - Alta'
-        WHEN 3 THEN N'3 - MÈdia'
+        WHEN 3 THEN N'3 - M√©dia'
         WHEN 4 THEN N'4 - Baixa'
-        WHEN 5 THEN N'5 - MÌnima'
+        WHEN 5 THEN N'5 - M√≠nima'
         ELSE N'N/A'
     END AS PrioridadeDoChamado,
 
     CASE
         WHEN L.Canon IS NULL                             THEN N'N/A'
-        WHEN L.PrioridadeEsperadaEnumCalc IS NULL        THEN N'N√O'
+        WHEN L.PrioridadeEsperadaEnumCalc IS NULL        THEN N'N√ÉO'
         WHEN b.priority <= L.PrioridadeEsperadaEnumCalc  THEN N'SIM'
-        ELSE N'N√O'
+        ELSE N'N√ÉO'
     END AS PrioridadeConfere
 FROM Base b
 
--- NormalizaÁ„o (NBSP/TAB/CR/LF + TRIM + remove espaÁos) para matching
+-- Normaliza√ß√£o (NBSP/TAB/CR/LF + TRIM + remove espa√ßos) para matching
 CROSS APPLY (SELECT CONVERT(nvarchar(max), COALESCE(b.summary, N'')) COLLATE Latin1_General_CI_AI AS sumAI) AS S
 CROSS APPLY (
     SELECT LTRIM(
@@ -148,13 +148,13 @@ CROSS APPLY (
 ) AS ASN
 CROSS APPLY (SELECT REPLACE(ASN.sumClean, N' ', N'') AS sumNoSpace) AS NS
 
--- ExtraÁ„o de % (CPU/MEM/DIS/PAR) do resumo
+-- Extra√ß√£o de % (CPU/MEM/DIS/PAR) do resumo
 CROSS APPLY (
     SELECT
-        NULLIF(CHARINDEX(REPLACE(N'UtilizaÁ„o de CPU',      N' ', N''), NS.sumNoSpace), 0) AS posCPU,
-        NULLIF(CHARINDEX(REPLACE(N'UtilizaÁ„o de MemÛria',  N' ', N''), NS.sumNoSpace), 0) AS posMEM,
-        NULLIF(CHARINDEX(REPLACE(N'UtilizaÁ„o do Disco',    N' ', N''), NS.sumNoSpace), 0) AS posDIS,
-        NULLIF(CHARINDEX(REPLACE(N'UtilizaÁ„o da PartiÁ„o', N' ', N''), NS.sumNoSpace), 0) AS posPAR
+        NULLIF(CHARINDEX(REPLACE(N'Utiliza√ß√£o de CPU',      N' ', N''), NS.sumNoSpace), 0) AS posCPU,
+        NULLIF(CHARINDEX(REPLACE(N'Utiliza√ß√£o de Mem√≥ria',  N' ', N''), NS.sumNoSpace), 0) AS posMEM,
+        NULLIF(CHARINDEX(REPLACE(N'Utiliza√ß√£o do Disco',    N' ', N''), NS.sumNoSpace), 0) AS posDIS,
+        NULLIF(CHARINDEX(REPLACE(N'Utiliza√ß√£o da Parti√ß√£o', N' ', N''), NS.sumNoSpace), 0) AS posPAR
 ) AS P
 CROSS APPLY (
     SELECT
